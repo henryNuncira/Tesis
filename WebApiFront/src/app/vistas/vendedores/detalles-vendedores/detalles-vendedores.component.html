@@ -1,0 +1,36 @@
+<div class="card mt-2" style="width: 100vh">
+  <div class="card-header">
+    detalles del Vendedor
+  </div>
+  <div class="card-body">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <p class="text-uppercase">No.# : {{vendedor.idVendedor}}</p>
+      </li>
+      <li class="list-group-item">
+        <p class="text-uppercase"> Nit : {{vendedor.nitVendedor}}</p>
+      </li>
+      <li class="list-group-item">
+        <p class="text-uppercase"> Nombre Completo: {{vendedor.nombreCompleto}}</p>
+      </li>
+      <li class="list-group-item">
+        <p class="text-uppercase">Telefono : {{vendedor.telefono}}</p>
+      </li>
+      <li class="list-group-item">
+        <p class="text-uppercase"> Dirección : {{vendedor.direccion}} </p>
+      </li>
+      <li class="list-group-item">
+         <p class="text-uppercase">Correo Electronico : {{vendedor.correoElectronico}}</p>
+      </li>
+    </ul>
+  </div>
+  <div class="btn-group" role="group">
+    <button class="btn btn-outline-warning btn-sm m-1" (click)= "toEditarVendedor()">Editar</button>
+    <button class="btn btn-outline-danger btn-sm m-1 " (click)= "toDeleteVendedor()">Borrar</button>
+  </div>
+</div>
+<br>
+<button class="btn btn-primary btn-sm m-1" (click)= "toList()">Volver a la lista</button>
+
+
+

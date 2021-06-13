@@ -1,0 +1,84 @@
+<form class="mt-3 col-md-8 offset-md-2" (ngSubmit)= "toGuardarUsuario()" [formGroup]="usuarioForm" >
+  <fieldset>
+    <legend>Usuarios</legend>
+    <div class="form-group row">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Identificación de Usuario</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="readOnlyInput" placeholder="Solo lectura Id" readonly=""
+        formControlName="idUsuario">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Nombre Completo</label>
+      <div class="col-sm-10">
+        <input type="text"   class="form-control-plaintext" placeholder="Nombre Completo"
+        formControlName="Password"
+        [ngClass] = "{
+          'is-invalid':isValidField('Password')
+        }"
+          >
+         <div class="invalid-feedback">
+
+          <span *ngIf="usuarioForm.get('Password')?.errors?.required">
+            Lo sentimos, Password de usuario es vacío. ¿Prueba otro?
+          </span>
+          </div>
+
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" placeholder="Password"
+      formControlName="password"
+      [ngClass] = "{
+        'is-invalid':isValidField('Password')
+      }"
+        >
+       <div class="invalid-feedback">
+
+        <span *ngIf="usuarioForm.get('Password')?.errors?.required">
+          Lo sentimos, Password de usuario es vacío. ¿Prueba otro?
+        </span>
+        </div>
+
+
+    </div>
+
+
+    <div class="form-group">
+      <label for="activo">Seleccione Actividad</label>
+      <select  class="custom-select" id="activo" formControlName="activo" [(ngModel)]="model.activo">
+
+        <option *ngFor="let activo of activos" [value]="activo.value">{{activo.Text}}</option>
+
+      </select>
+    </div>
+
+ <div class="form-group">
+      <label for="rol">Seleccione Rol</label>
+      <select  class="form-control" id="rol" formControlName="rol" [(ngModel)]="model.rol">
+
+        <option *ngFor="let rol of roles " [value]="rol.value">{{rol.Text}}</option>
+
+      </select>
+    </div>
+
+    <!-- <div class="form-group">
+      <label for="exampleInputPassword1">activo</label>
+      <input type="number" class="form-control" placeholder="Activo" formControlName="activo">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">rol</label>
+
+      <input  type="number" class="form-control" placeholder="rol"  formControlName="rol">
+    </div> -->
+
+    <div >
+      <button  type="submit" id="save"  class="btn btn-success btn-block text-light">Guardar</button>
+    </div>
+
+  </fieldset>
+
+</form>
+<button class="btn btn-primary btn-sm m-1" (click)= "toList()">Volver a la lista</button>

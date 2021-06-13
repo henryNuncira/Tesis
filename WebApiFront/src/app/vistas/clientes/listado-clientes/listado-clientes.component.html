@@ -1,0 +1,38 @@
+<div class="container mt-3">
+
+  <h1>Listado de Clientes</h1>
+    <button type="button" class="btn btn-warning m-1" (click)="toNuevoCliente()">Nuevo</button>
+    <button type="button" class="btn btn-primary btn-lg"[routerLink]="['/contAdmin']">Regresar al Menu</button>
+    <table datatable class="table table-striped table-hover">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">No.#</th>
+      <th scope="col">Nit/Cedula</th>
+      <th scope="col">NombreCompleto</th>
+      <th scope="col">Telefono</th>
+      <th scope="col">Direccion</th>
+      <th scope="col">CorreoElectronico</th>
+      <th scope="col">Acciones</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr  *ngFor="let cliente of  listadoClientes;">
+      <th scope="row">{{cliente.idCliente}}</th>
+      <td>{{cliente.nit}}</td>
+      <td>{{cliente.nombreCompleto}}</td>
+      <td>{{cliente.telefono}}</td>
+      <td>{{cliente.direccion}}</td>
+      <td>{{cliente.correoElectronico}}</td>
+      <td class="btn-group" role="group">
+        <button type="button" class="btn btn-outline-success m-1" (click)="toEditarCliente(cliente)">Editar</button>
+        <button type="button" class="btn btn-outline-info m-1" (click)="toVerCliente(cliente)">Mostrar</button>
+        <button type="button" class="btn btn-outline-danger m-1" (click)="toDeleteCliente(cliente.idCliente)">Eliminar</button>
+      </td>
+    </tr>
+
+  </tbody>
+  </table>
+  </div>
+
+

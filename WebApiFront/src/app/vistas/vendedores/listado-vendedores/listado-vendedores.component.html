@@ -1,0 +1,38 @@
+<div class="container mt-3">
+
+
+  <button type="button" class="btn btn-warning m-1" (click)="toNuevoVendedor()">Nuevo</button>
+  <button type="button" class="btn btn-primary btn-lg"[routerLink]="['/contAdmin']">Regresar al Menu</button>
+<table class="row-border hover table-striped table-bordered">
+<thead class="thead-dark">
+  <tr>
+    <th scope="col">No.#</th>
+    <th scope="col">Nit</th>
+    <th scope="col">NombreCompleto</th>
+    <th scope="col">Telefono</th>
+    <th scope="col">Direccion</th>
+    <th scope="col">CorreoElectronico</th>
+    <th scope="col">Acciones</th>
+
+  </tr>
+</thead>
+<tbody>
+  <tr  *ngFor="let vendedor of  listadoVendedores;">
+    <th scope="row">{{vendedor.idVendedor}}</th>
+    <td>{{vendedor.nitVendedor}}</td>
+    <td>{{vendedor.nombreCompleto}}</td>
+    <td>{{vendedor.telefono}}</td>
+    <td>{{vendedor.direccion}}</td>
+    <td>{{vendedor.correoElectronico}}</td>
+    <td class="btn-group" role="group">
+      <button type="button" class="btn btn-outline-success m-1" (click)="toEditarVendedor(vendedor)">Editar</button>
+      <button type="button" class="btn btn-outline-info m-1" (click)="toVerVendedor(vendedor)">Mostrar</button>
+      <button type="button" class="btn btn-outline-danger m-1" (click)="toDeleteVendedor(vendedor.idVendedor)">Eliminar</button>
+    </td>
+  </tr>
+
+</tbody>
+</table>
+</div>
+
+

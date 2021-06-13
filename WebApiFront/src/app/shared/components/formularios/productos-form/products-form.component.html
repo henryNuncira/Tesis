@@ -1,0 +1,100 @@
+<form class="mt-3 col-md-8 offset-md-2"  (ngSubmit)= "toGuardarProducto()" [formGroup] = "productosForm" >
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input type="text" class="form-control" id="readOnlyInput" placeholder="Solo lectura Id"
+      readonly="" formControlName="idProducto"
+      [ngClass] = "{
+        'is-invalid':isValidField('idProducto')
+      }"
+        >
+       <div class="invalid-feedback">
+
+        <span *ngIf="productosForm.get('idProducto')?.errors?.required">
+          Lo sentimos, producto de usuario es vacío. ¿Prueba otro?
+        </span>
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+      <input type="text" class="form-control" placeholder="Nombre Completo"
+      formControlName="nombreCompleto"
+      [ngClass] = "{
+        'is-invalid':isValidField('nombreCompleto')
+      }"
+        >
+       <div class="invalid-feedback">
+
+        <span *ngIf="productosForm.get('nombreCompleto')?.errors?.required">
+          Lo sentimos,Nombre es vacío. ¿Prueba otro?
+        </span>
+        </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input type="number" class="form-control" placeholder="Precio $"
+      formControlName="precio"
+      [ngClass] = "{
+        'is-invalid':isValidField('precio')
+      }"
+        >
+       <div class="invalid-feedback">
+
+        <span *ngIf="productosForm.get('precio')?.errors?.required">
+          Lo sentimos, precio es vacío. ¿Prueba otro?
+        </span>
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+      <input type="number" class="form-control" placeholder="stock"
+      formControlName="stock"
+      [ngClass] = "{
+        'is-invalid':isValidField('stock')
+      }"
+        >
+       <div class="invalid-feedback">
+
+        <span *ngIf="productosForm.get('stock')?.errors?.required">
+          Lo sentimos, stock es vacío. ¿Prueba otro?
+        </span>
+        </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input type="text" class="form-control" placeholder="Clasificación"
+      formControlName="clasificacion"
+      [ngClass] = "{
+        'is-invalid':isValidField('clasificacion')
+      }"
+        >
+       <div class="invalid-feedback">
+
+        <span *ngIf="productosForm.get('clasificacion')?.errors?.required">
+          Lo sentimos, clasificación de producto es vacío. ¿Prueba otro?
+        </span>
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+      <input type="text" class="form-control" placeholder="Detalles de Venta"
+      formControlName="detallesVenta"
+      [ngClass] = "{
+        'is-invalid':isValidField('detallesVenta')
+      }"
+        >
+       <div class="invalid-feedback">
+
+        <span *ngIf="productosForm.get('detallesVenta')?.errors?.required">
+          Lo sentimos, debe hacer un detalle. ¿Prueba otro?
+        </span>
+        </div>
+    </div>
+  </div>
+  <div *ngIf="this.bandera==1">
+  <button  type="submit" id="save"  class="btn btn-success btn-block text-light">Guardar</button>
+</div>
+<div  *ngIf="this.bandera==0">
+  <button type="submit" id="modify" class="btn btn-success btn-block text-light">Modificar</button>
+</div>
+</form>
+<button class="btn btn-primary btn-sm m-1" (click)= "toList()">Volver a la lista</button>

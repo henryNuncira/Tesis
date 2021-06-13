@@ -1,0 +1,36 @@
+<div class="container mt-3">
+
+
+  <button type="button" class="btn btn-warning m-1" (click)="toNuevoUsuario()">Nuevo</button>
+<table datatable class="row-border hover table-striped table-bordered">
+<thead class="thead-dark">
+  <tr>
+    <th scope="col">No.#</th>
+    <th scope="col">Nombre Usuario</th>
+    <th scope="col">Activo</th>
+    <th scope="col">Rol</th>
+    <th scope="col">Acciones</th>
+
+  </tr>
+</thead>
+<tbody>
+  <tr  *ngFor="let usuario of  listadoUsuarios;">
+    <th scope="row">{{usuario.idUsuario}}</th>
+    <td>{{usuario.nombreUsuario}}</td>
+    <td *ngIf="usuario.activo == 1">Activo</td>
+    <td *ngIf="usuario.activo == 2">Inactivo</td>
+    <td *ngIf="usuario.rol == 1">Administrador</td>
+    <td *ngIf="usuario.rol == 2">Vendedor</td>
+    <td *ngIf="usuario.rol == 3">Administrador Especial</td>
+    <td class="btn-group" role="group">
+      <button type="button" class="btn btn-outline-success m-1" (click)="toEditarUsuario(usuario)">Editar</button>
+      <button type="button" class="btn btn-outline-danger m-1" (click)="toDeleteUsuario(usuario.idUsuario)">Eliminar</button>
+    </td>
+  </tr>
+
+</tbody>
+</table>
+</div>
+
+
+

@@ -1,0 +1,55 @@
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="assets/logo.png" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form (ngSubmit)= "onLogin(loginForm.value)" [formGroup]="loginForm">
+      <input type="text" id="login" class="fadeIn second"  placeholder="login" formControlName="nombreUsuario"
+      [ngClass] = "{
+       'is-invalid':isValidField('nombreUsuario')
+     }"
+       >
+      <div class="invalid-feedback">
+
+       <span *ngIf="loginForm.get('nombreUsuario')?.errors?.required">
+         Lo siento, ese nombre de usuario es vacío. ¿Prueba otro?
+       </span>
+       <span *ngIf="loginForm.get('nombreUsuario')?.errors?.minlength">
+         el NickName debe tener un minimo {{loginForm.get('nombreUsuario')?.errors?.minlength?.requiredLength}}
+         caracteres
+       </span>
+       </div>
+
+      <input type="password" id="password" class="fadeIn third"  placeholder="password" formControlName="password"
+      [ngClass] = "{
+       'is-invalid':isValidField('password')
+     }"
+       >
+      <div class="invalid-feedback">
+
+       <span *ngIf="loginForm.get('password')?.errors?.required">
+         Lo siento, campo no puede ser  vacío. ¿Prueba otro?
+       </span>
+       <span *ngIf="loginForm.get('password')?.errors?.minlength">
+         la Clave debe tener un minimo {{loginForm.get('password')?.errors?.minlength?.requiredLength}}
+         caracteres
+       </span>
+       </div>
+
+      <input type="submit" class="fadeIn fourth" value="Iniciar Sesión">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div class="alert alert-danger" *ngIf="errorState">
+<span>{{errorMessage}}</span>
+  </div>
+
+  </div>
+</div>
+

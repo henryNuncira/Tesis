@@ -1,0 +1,31 @@
+<<div class="container mt-3">
+  <button type="button" class="btn btn-warning m-1" (click)="toNuevoCategoria()">Nuevo</button>
+  <button type="button" class="btn btn-primary btn-lg"[routerLink]="['/contAdmin']">Regresar al Menu</button>
+<table datatable class="row-border hover table-striped table-bordered">
+<thead class="thead-dark">
+  <tr>
+    <th scope="col">No.#</th>
+    <th scope="col">Nombre Completo</th>
+    <th scope="col">descripción del Producto</th>
+    <th scope="col">clasificación del Producto</th>
+    <th scope="col">Acciones</th>
+
+  </tr>
+</thead>
+<tbody>
+  <tr  *ngFor="let categoria of  listadoCategoria;">
+    <th scope="row">{{categoria.idCategoria}}</th>
+    <td>{{categoria.nombreProducto}}</td>
+    <td>{{categoria.desProducto}}</td>
+    <td>{{categoria.clasificacionProducto}}</td>
+
+    <td class="btn-group" role="group">
+      <button type="button" class="btn btn-outline-success m-1" (click)="toEditarCategoria(categoria)">Editar</button>
+      <button type="button" class="btn btn-outline-info m-1" (click)="toVerCategoria(categoria)">Mostrar</button>
+      <button type="button" class="btn btn-outline-danger m-1" (click)="toDeleteCategoria(categoria.idCategoria)">Eliminar</button>
+    </td>
+  </tr>
+
+</tbody>
+</table>
+</div>
