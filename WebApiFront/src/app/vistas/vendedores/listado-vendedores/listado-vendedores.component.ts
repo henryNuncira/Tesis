@@ -40,11 +40,11 @@ export class ListadoVendedoresComponent implements OnInit {
 }
 
   toEditarVendedor(vendedores:any):void{
-    this.navigationExtras.state = vendedores;
+    this.navigationExtras.state!.value = vendedores;
     this.router.navigate(['editarVendedores'], this.navigationExtras)
   }
   toVerVendedor(vendedores:any):void{
-    this.navigationExtras.state = vendedores;
+    this.navigationExtras.state!.value = vendedores;
     this.router.navigate(['detallesVendedores'], this.navigationExtras);
   }
 

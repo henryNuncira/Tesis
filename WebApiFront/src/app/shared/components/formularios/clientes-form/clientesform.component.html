@@ -35,14 +35,14 @@
       <div class="form-group col-md-6">
         <label for="formFile" class="form-label">Nombre y apellidos</label>
 
-        <input type="text" class="form-control" placeholder="Nombre Completo" formControlName="nombre"
+        <input type="text" class="form-control" placeholder="Nombre Completo" formControlName="nombreCompleto"
         [ngClass] = "{
-          'is-invalid':isValidField('nombre')
+          'is-invalid':isValidField('nombreCompleto')
         }"
         >
         <div class="invalid-feedback">
 
-          <span *ngIf="clienteForm.get('nombre')?.errors?.required">
+          <span *ngIf="clienteForm.get('nombreCompleto')?.errors?.required">
             Lo siento, ese nombre de usuario es vacío. ¿Prueba otro?
           </span>
           </div>

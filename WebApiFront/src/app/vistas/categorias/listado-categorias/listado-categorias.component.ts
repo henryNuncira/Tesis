@@ -40,11 +40,11 @@ export class ListadoCategoriasComponent implements OnInit {
 }
 
   toEditarCategoria(categoriaEdi:any):void{
-    this.navigationExtras.state = categoriaEdi;
+    this.navigationExtras.state!.value = categoriaEdi;
     this.router.navigate(['editarCategorias'], this.navigationExtras)
   }
   toVerCategoria(categoriaVer:any):void{
-    this.navigationExtras.state = categoriaVer;
+    this.navigationExtras.state!.value = categoriaVer;
     this.router.navigate(['detallesCategorias'], this.navigationExtras);
   }
 

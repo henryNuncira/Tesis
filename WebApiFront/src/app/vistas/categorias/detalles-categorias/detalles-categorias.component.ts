@@ -28,7 +28,7 @@ export class DetallesCategoriasComponent implements OnInit {
     }
   }
   toEditarCategoria():void{
-    this.navigationExtras.state = this.categoria;
+    this.navigationExtras.state!.value = this.categoria;
     this.router.navigate(['editarCategorias'], this.navigationExtras);
   }
 

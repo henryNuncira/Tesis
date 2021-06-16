@@ -113,11 +113,11 @@ if( this.bandera==1){
     private initForm(): void {
       this.vendedorForm = this.fb.group({
         idVendedor: ['',[Validators.required]],
-        nitVendedor:['',[Validators.required]],
+        nit:['',[Validators.required]],
         nombreCompleto:['',[Validators.required]],
         telefono:['',[Validators.required]],
-        direccion:['',[Validators.required, Validators.pattern(this.isEmail)]],
-        correoElectronico:['',[Validators.required]],
+        correoElectronico :['',[Validators.required, Validators.pattern(this.isEmail)]],
+        direccion :['',[Validators.required]],
 
       });
     }

@@ -40,11 +40,11 @@ export class ListadoProductosComponent implements OnInit {
 }
 
   toEditarProducto(productoEdi:any):void{
-    this.navigationExtras.state= productoEdi;
+    this.navigationExtras.state!.value= productoEdi;
     this.router.navigate(['editarProductos'], this.navigationExtras)
   }
   toVerProducto(productoVer:any):void{
-    this.navigationExtras.state = productoVer;
+    this.navigationExtras.state!.value = productoVer;
     this.router.navigate(['detallesProductos'], this.navigationExtras);
   }
 

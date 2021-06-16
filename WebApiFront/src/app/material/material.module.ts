@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatTableModule } from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator'
+import { MatLabel } from '@angular/material/form-field';
 
 
 
@@ -13,6 +14,7 @@ import {MatPaginatorModule} from '@angular/material/paginator'
     CommonModule,
     MatTableModule,
     MatPaginatorModule
+
   ],
   exports: [
     MatTableModule,

@@ -1,4 +1,4 @@
-<<div class="container mt-3">
+<div class="container mt-3">
   <button type="button" class="btn btn-warning m-1" (click)="toNuevoCategoria()">Nuevo</button>
   <button type="button" class="btn btn-primary btn-lg"[routerLink]="['/contAdmin']">Regresar al Menu</button>
 <table datatable class="row-border hover table-striped table-bordered">
@@ -7,7 +7,6 @@
     <th scope="col">No.#</th>
     <th scope="col">Nombre Completo</th>
     <th scope="col">descripción del Producto</th>
-    <th scope="col">clasificación del Producto</th>
     <th scope="col">Acciones</th>
 
   </tr>
@@ -15,9 +14,8 @@
 <tbody>
   <tr  *ngFor="let categoria of  listadoCategoria;">
     <th scope="row">{{categoria.idCategoria}}</th>
-    <td>{{categoria.nombreProducto}}</td>
-    <td>{{categoria.desProducto}}</td>
-    <td>{{categoria.clasificacionProducto}}</td>
+    <td>{{categoria.nombre}}</td>
+    <td>{{categoria.descripcion}}</td>
 
     <td class="btn-group" role="group">
       <button type="button" class="btn btn-outline-success m-1" (click)="toEditarCategoria(categoria)">Editar</button>

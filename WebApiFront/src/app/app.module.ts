@@ -33,7 +33,8 @@ import { VendedoresFormModule } from './shared/components/formularios/vendedores
 import { VentaFormModule } from './shared/components/formularios/venta-form/venta-form.module';
 import { FooterComponent } from './plantillas/footer/footer.component';
 import { HeaderComponent } from './plantillas/header/header.component';
-
+//import { DialogVentaComponent } from './pages/ventas/dialog/dialogventa.component';
+import {DialogVentaComponent} from './vistas/venta/dialog/dialogVenta.component'
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { HeaderComponent } from './plantillas/header/header.component';
     BlogComponent,
     ContactoComponent,
     ContlistasComponent,
-    ContlistasAdminComponent
+    ContlistasAdminComponent,
+    DialogVentaComponent
 
  ],
   imports: [

@@ -107,9 +107,8 @@ if( this.bandera==1){ debugger;
     private initForm(): void {
       this.categoriaForm = this.fb.group({
         idCategoria: ['',[Validators.required]],
-        nombreProducto:['',[Validators.required]],
-        desProducto:['',[Validators.required]],
-        clasificacionProducto:['',[Validators.required]],
+        nombre:['',[Validators.required]],
+        descripcion:['',[Validators.required]],
 
 
       });

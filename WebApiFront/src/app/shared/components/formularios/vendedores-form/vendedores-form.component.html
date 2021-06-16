@@ -17,15 +17,15 @@
       <div class="form-group col-md-6">
         <label for="formFile" class="form-label">Nit / Dni</label>
 
-        <input type="text" class="form-control" placeholder="nitVendedor/Dni" formControlName="nitVendedor"
+        <input type="text" class="form-control" placeholder="Nit/Dni" formControlName="nit"
         [ngClass] = "{
-          'is-invalid':isValidField('nitVendedor')
+          'is-invalid':isValidField('nit')
         }"
           >
          <div class="invalid-feedback">
 
-          <span *ngIf="vendedorForm.get('nitVendedor')?.errors?.required">
-            Lo sentimos, nitVendedor de usuario es vacío. ¿Prueba otro?
+          <span *ngIf="vendedorForm.get('nit')?.errors?.required">
+            Lo sentimos, nit de usuario es vacío. ¿Prueba otro?
           </span>
           </div>
       </div>

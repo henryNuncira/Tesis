@@ -106,8 +106,8 @@ toChange(): void{
         nit:['',[Validators.required]],
         nombreCompleto:['',[Validators.required]],
         telefono:['',[Validators.required, Validators.minLength(10)]],
-        direccion:['',[Validators.required, Validators.pattern(this.isEmail)]],
-        correoElectronico:['',[Validators.required]],
+        direccion:['',[Validators.required]],
+        correoElectronico:['',[Validators.required, Validators.pattern(this.isEmail)]],
 
       });
     }

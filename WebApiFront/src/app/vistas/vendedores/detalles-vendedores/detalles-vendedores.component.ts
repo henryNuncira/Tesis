@@ -29,7 +29,7 @@ export class DetallesVendedoresComponent implements OnInit {
     }
   }
   toEditarVendedor():void{
-    this.navigationExtras.state = this.vendedor;
+    this.navigationExtras.state!.value = this.vendedor;
     this.router.navigate(['editarVendedores'], this.navigationExtras);
   }
 

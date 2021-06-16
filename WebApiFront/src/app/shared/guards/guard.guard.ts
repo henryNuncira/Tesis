@@ -11,38 +11,43 @@ export class GuardGuard implements CanActivate {
 
   constructor(private route:Router){}
 
-  redirect(flag:string):boolean {
-    if(flag.length != 0)
-    {
-      return true;
-    }
-     else{
-      Swal.fire({
-        title: "Sweet!",
-        text: "Here's a custom image.",
-        imageUrl: 'thumbs-up.jpg'
-      });
-      this.route.navigate(['/dashboard'])
-      return false;
-      }
+  // redirect(flag:string):boolean {
+  //   if(flag != null)
+  //   {
+  //     return false;
+  //   }
+  //    else{
+  //     Swal.fire({
+  //       title: "Sweet!",
+  //       text: "Here's a custom image.",
+  //       imageUrl: 'thumbs-up.jpg'
+  //     });
+  //     this.route.navigate(['/dashboard'])
+  //     return true;
+  //     }
+  // }
+  public get value() : any {
+    return
   }
-
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const tokenPermiti= localStorage.getItem('token');
 
-    this.redirect("tokenPermiti")
-    return true;
+    if(tokenPermiti != null)
+      {
+        return true;
+      }
+       else{
+        Swal.fire({
+          title: "Alerta!",
+          text: "Debes iniciar sesión",
+          imageUrl: 'thumbs-up.jpg'
+        });
+        this.route.navigate(['/dashboard'])
+        return false;
+        }
        }
-  canActivateChild(
-    childRoute: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      const tokenPermiti= localStorage.getItem('token');
-
-      this.redirect("tokenPermiti")
-      return true;
-  }
 
 }

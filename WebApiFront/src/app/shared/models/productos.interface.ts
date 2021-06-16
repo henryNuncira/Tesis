@@ -1,11 +1,9 @@
 export interface productosI
 {
   idProducto : number;
-  nombreCompleto :string;
-  precio : number;
+  nitCodigo : number;
+  nombre :string;
+  precioVenta : number;
   stock : number;
-  clasificacion :string;
-  detallesVenta :string;
-
-
-}
+  descricion :string;
+ }

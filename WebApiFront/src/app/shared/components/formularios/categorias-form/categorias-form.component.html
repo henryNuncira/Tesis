@@ -17,14 +17,14 @@
     </div>
     <div class="form-group col-md-6">
       <input type="text" class="form-control" placeholder="Nombre de producto"
-       formControlName="nombreProducto"
+       formControlName="nombre"
        [ngClass] = "{
-        'is-invalid':isValidField('nombreProducto')
+        'is-invalid':isValidField('nombre')
       }"
         >
        <div class="invalid-feedback">
 
-        <span *ngIf="categoriaForm.get('nombreProducto')?.errors?.required">
+        <span *ngIf="categoriaForm.get('nombre')?.errors?.required">
           Lo sentimos, nombre de producto es vacío. ¿Prueba otro?
         </span>
         </div>
@@ -34,34 +34,19 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <input type="text" class="form-control" placeholder="Descripción del producto"
-      formControlName="desProducto"
+      formControlName="descripcion"
       [ngClass] = "{
-        'is-invalid':isValidField('desProducto')
+        'is-invalid':isValidField('descripcion')
       }"
         >
        <div class="invalid-feedback">
 
-        <span *ngIf="categoriaForm.get('desProducto')?.errors?.required">
+        <span *ngIf="categoriaForm.get('descripcion')?.errors?.required">
           Lo sentimos, descripcion del Producto vacío. ¿Prueba otro?
         </span>
         </div>
     </div>
     </div>
-    <div class="form-group col-md-6">
-      <input type="text" class="form-control" placeholder="Clasificación"
-      formControlName="clasificacionProducto"
-      [ngClass] = "{
-        'is-invalid':isValidField('clasificacionProducto')
-      }"
-        >
-       <div class="invalid-feedback">
-
-        <span *ngIf="categoriaForm.get('clasificacionProducto')?.errors?.required">
-          Lo sentimos, descripcion del Producto vacío. ¿Prueba otro?
-        </span>
-        </div>
-    </div>
-
   <div *ngIf="this.bandera==1">
   <button  type="submit" id="save"  class="btn btn-success btn-block text-light">Guardar</button>
 </div>

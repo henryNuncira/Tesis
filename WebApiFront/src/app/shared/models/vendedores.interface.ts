@@ -1,7 +1,7 @@
 export interface vendedoresI
 {
   idVendedor : number;
-  nitVendedor : string;
+  nit : string;
   nombreCompleto :string;
   telefono :string;
   direccion :string;

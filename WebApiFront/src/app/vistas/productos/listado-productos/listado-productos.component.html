@@ -8,10 +8,10 @@
   <tr>
     <th scope="col">No.#</th>
     <th scope="col">nombre Completo</th>
+    <th scope="col">Nit / Codigo</th>
     <th scope="col">precio</th>
     <th scope="col">stock</th>
-    <th scope="col">clasificacion</th>
-    <th scope="col">detallesVenta</th>
+    <th scope="col">Descripción</th>
     <th scope="col">Acciones</th>
 
   </tr>
@@ -19,11 +19,11 @@
 <tbody>
   <tr  *ngFor="let producto of  listadoProductos;">
     <th scope="row">{{producto.idProducto}}</th>
-    <td>{{producto.nombreCompleto}}</td>
-    <td>{{producto.precio}}</td>
+    <td>{{producto.nombre}}</td>
+    <td>{{producto.nitCodigo}}</td>
+    <td>{{producto.precioVenta}}</td>
     <td>{{producto.stock}}</td>
-    <td>{{producto.clasificacion}}</td>
-    <td>{{producto.detallesVenta}}</td>
+    <td>{{producto.descricion}}</td>
     <td class="btn-group" role="group">
       <button type="button" class="btn btn-outline-success m-1" (click)="toEditarProducto(producto)">Editar</button>
       <button type="button" class="btn btn-outline-info m-1" (click)="toVerProducto(producto)">Mostrar</button>

@@ -40,11 +40,11 @@ export class ListadoClientesComponent implements OnInit {
 }
 
   toEditarCliente(clienteEdi:any):void{
-    this.navigationExtras.state= clienteEdi;
+    this.navigationExtras!.state!.value = clienteEdi;
     this.router.navigate(['editarClientes'], this.navigationExtras)
   }
   toVerCliente(clienteVer:any):void{
-    this.navigationExtras.state = clienteVer;
+    this.navigationExtras!.state!.value = clienteVer;
     this.router.navigate(['detallesClientes'], this.navigationExtras);
   }
 

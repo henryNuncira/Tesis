@@ -9,7 +9,7 @@ import { ApiService } from "src/app/services/api/api.service";
 
 @Component({
 
-  templateUrl: 'dialogventa.component.html'
+  templateUrl: 'dialogventa.component.html',
 
 })
 export class DialogVentaComponent  {
@@ -26,7 +26,7 @@ public detalleForm = this.fb.group({
   constructor(
     public dialogRef: MatDialogRef<DialogVentaComponent>,
     public snackBar : MatSnackBar,
-    private formBuildesr: FormBuilder,
+    private formBuilder: FormBuilder,
     public api:ApiService,
     private fb:FormBuilder,
     private router:Router,

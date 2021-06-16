@@ -11,12 +11,14 @@ import Swal from 'sweetalert2';
   templateUrl: './products-form.component.html',
 })
 export class ProductsFormComponent implements OnInit {
-  bandera : number =0;
 
-  producto !: productosI;
+
+  bandera : number =0;
+  productoBorrar !: number;
+  producto !:productosI;
   estado !: number;
   message !: string;
-  productosForm !: FormGroup;
+  productoForm !: FormGroup;
   private isEmail = /\S+@\S+\.\S+/;
 
 
@@ -33,25 +35,22 @@ export class ProductsFormComponent implements OnInit {
             this.bandera = 1;
             this.router.navigate(['nuevoProductos']);
           }else{
-            this.productosForm.patchValue(this.producto);
+            this.productoForm.patchValue(this.producto);
 
            //popular el proveedor si ya existe montarel empleado a editar en el formulario
       }
     }
 
     toGuardarProducto() : void{
-{// si el proveedor no existe creelo
 
-    // if( this.proveedorForm.valid){
-if( this.bandera==1){
-        this.api.PostNewProducto(this.productosForm.value).subscribe(
+  if( this.bandera==1){
+        this.api.PostNewProducto(this.productoForm.value).subscribe(
           respuesta =>{
-            this.estado = respuesta.state;
-
+            this.estado= respuesta.state;
             if (this.estado == 200) {
               Swal.fire({
 
-                title: 'Producto creado correctamente',
+                title: 'producto creado correctamente',
                 showClass: {
                   popup: 'animate__animated animate__fadeInDown'
                 },
@@ -63,7 +62,7 @@ if( this.bandera==1){
             } else {
               Swal.fire({
 
-                title: 'Producto no se ha creado correctamente',
+                title: 'producto no se ha creado correctamente',
                 showClass: {
                   popup: 'animate__animated animate__fadeInDown'
                 },
@@ -73,24 +72,17 @@ if( this.bandera==1){
               })
 
             }
+          });
 
-          }
-        );
-      //}
         } else this.toChange();
-    this.productosForm.reset();
+    this.productoForm.reset();
 }
 
-        }
+toChange(): void{
 
-        toChange(): void{
-      //this.ProveedorBorrar=7;
 
-      this.api.PutModifyProducto(this.producto.idProducto,this.productosForm.value).subscribe(
+      this.api.PutModifyProducto(this.producto.idProducto,this.productoForm.value).subscribe(
         resp=>{
-
-          // this.estado= resp.state;
-          // this.message= resp.message;
 
           Swal.fire({
             position: 'top-end',
@@ -109,7 +101,7 @@ if( this.bandera==1){
     }
 
     private initForm(): void {
-      this.productosForm = this.fb.group({
+      this.productoForm = this.fb.group({
         idProducto: ['',[Validators.required]],
         nombreCompleto:['',[Validators.required]],
         precio:['',[Validators.required]],
@@ -119,8 +111,12 @@ if( this.bandera==1){
 
       });
     }
+  formularioReset():void{
+      this.productoForm.reset();
+    }
+
     isValidField(campo:string): boolean{
-      const fieldName = this.productosForm.get(campo);
+      const fieldName = this.productoForm.get(campo);
       return fieldName!.invalid && fieldName!.touched;
     }
-  }
+}

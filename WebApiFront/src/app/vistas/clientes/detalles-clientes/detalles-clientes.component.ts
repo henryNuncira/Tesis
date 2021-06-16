@@ -33,7 +33,7 @@ export class DetallesClientesComponent implements OnInit {
   }
 
   toList():void{
-    this.router.navigate(['s']);
+    this.router.navigate(['listadoClientes']);
   }
  toDeleteCliente() : void{
     this.api.DeleteCliente(this.cliente.idCliente).subscribe(resp=>{
