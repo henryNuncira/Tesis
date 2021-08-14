@@ -50,7 +50,7 @@ const routes: Routes = [
   { path: 'nuevoVendedores', loadChildren: () => import('./vistas/vendedores/nuevo-vendedores/nuevo-vendedores.module').then(m => m.NuevoVendedoresModule) },
   { path: 'editarVendedores', loadChildren: () => import('./vistas/vendedores/editar-vendedores/editar-vendedores.module').then(m => m.EditarVendedoresModule) },
   { path: 'editarVenta', loadChildren: () => import('./vistas/venta/editar-venta/editar-venta.module').then(m => m.EditarVentaModule) },
-  { path: 'listadoVenta', loadChildren: () => import('./vistas/venta/listado-venta/listado-venta.module').then(m => m.ListadoVentaModule) , canActivate:[GuardGuard]},
+  { path: 'listadoVentas', loadChildren: () => import('./vistas/venta/listado-venta/listado-venta.module').then(m => m.ListadoVentaModule) },
   { path: 'detallesVenta', loadChildren: () => import('./vistas/venta/detalles-venta/detalles-venta.module').then(m => m.DetallesVentaModule) },
   { path: 'nuevoVenta', loadChildren: () => import('./vistas/venta/nuevo-venta/nuevo-venta.module').then(m => m.NuevoVentaModule) },
 

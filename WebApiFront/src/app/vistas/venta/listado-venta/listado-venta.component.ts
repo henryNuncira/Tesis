@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
+//import { MatSnackBar } from '@angular/material/snack-bar';
 import { NavigationExtras, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api/api.service';
 import { ventasI } from 'src/app/shared/models/ventas.interface';
@@ -26,7 +26,7 @@ export class ListadoVentaComponent implements OnInit {
 
 
   constructor(http: HttpClient ,private api:ApiService,private router:Router,
-    public dialog:MatDialog, public snackBar: MatSnackBar) {}
+    public dialog:MatDialog) {}
 
   ngOnInit(): void {
     this.getAllVentas();

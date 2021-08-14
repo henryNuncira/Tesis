@@ -1,3 +1,6 @@
+import {TestBed} from "@angular/core/testing";
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 import { Component } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material/dialog";
@@ -25,7 +28,7 @@ public detalleForm = this.fb.group({
 })
   constructor(
     public dialogRef: MatDialogRef<DialogVentaComponent>,
-    public snackBar : MatSnackBar,
+    //public snackBar : MatSnackBar,
     private formBuilder: FormBuilder,
     public api:ApiService,
     private fb:FormBuilder,
@@ -50,10 +53,10 @@ public detalleForm = this.fb.group({
       if (resp.state==200)
       {
         this.dialogRef.close();
-        this.snackBar.open('venta hecha con éxito','',{
-          duration:2000
-        });
+        // this.snackBar.open('venta hecha con éxito','',{
+        //   duration:2000
+        // });
       }
-    })
+    });
   }
 }

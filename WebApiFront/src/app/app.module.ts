@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 import { MaterialModule } from './material/material.module';
@@ -33,8 +34,9 @@ import { VendedoresFormModule } from './shared/components/formularios/vendedores
 import { VentaFormModule } from './shared/components/formularios/venta-form/venta-form.module';
 import { FooterComponent } from './plantillas/footer/footer.component';
 import { HeaderComponent } from './plantillas/header/header.component';
-//import { DialogVentaComponent } from './pages/ventas/dialog/dialogventa.component';
 import {DialogVentaComponent} from './vistas/venta/dialog/dialogVenta.component'
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,7 @@ import {DialogVentaComponent} from './vistas/venta/dialog/dialogVenta.component'
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-
+    MatFormFieldModule,
     ReactiveFormsModule,
     MatTableModule,
     MatSliderModule,
@@ -75,11 +77,18 @@ import {DialogVentaComponent} from './vistas/venta/dialog/dialogVenta.component'
     ProveedorFormModule,
     UsuarioFormModule,
     VendedoresFormModule,
-    VentaFormModule
+    VentaFormModule,
+    MatDialogModule
 
     ],
 
-  providers: [],
+  providers: [
+    // {
+    //   provide: MatDialogRef,
+    //   useValue: {}
+    // },
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

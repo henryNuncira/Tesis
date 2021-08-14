@@ -179,7 +179,7 @@ DeleteProducto(idProducto:number): Observable<responseI>
 getAllVentas():Observable<ventasI[]>
 {
   let header = new HttpHeaders().set('Type-content', 'aplication/json')
-  let direccion = this.url + "GetVentaPedidos";
+  let direccion = this.url + "GetVentas";
 
   return this.http.get<ventasI[]>(direccion,{headers:header});
 }

@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['contAdmin']);
               break;
           case 2:
-            this.router.navigate(['nuevoVentas']);
+            this.router.navigate(['listadoVentas']);
               break;
           case 3:
             this.router.navigate(['contlistas']);
