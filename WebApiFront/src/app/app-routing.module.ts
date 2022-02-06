@@ -52,7 +52,7 @@ const routes: Routes = [
   { path: 'editarVenta', loadChildren: () => import('./vistas/venta/editar-venta/editar-venta.module').then(m => m.EditarVentaModule) },
   { path: 'listadoVentas', loadChildren: () => import('./vistas/venta/listado-venta/listado-venta.module').then(m => m.ListadoVentaModule) },
   { path: 'detallesVenta', loadChildren: () => import('./vistas/venta/detalles-venta/detalles-venta.module').then(m => m.DetallesVentaModule) },
-  { path: 'nuevoVenta', loadChildren: () => import('./vistas/venta/nuevo-venta/nuevo-venta.module').then(m => m.NuevoVentaModule) },
+  { path: 'nuevaVenta', loadChildren: () => import('./vistas/venta/nuevo-venta/nuevo-venta.module').then(m => m.NuevoVentaModule) },
 
 
 

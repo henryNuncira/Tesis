@@ -34,7 +34,6 @@ import { VendedoresFormModule } from './shared/components/formularios/vendedores
 import { VentaFormModule } from './shared/components/formularios/venta-form/venta-form.module';
 import { FooterComponent } from './plantillas/footer/footer.component';
 import { HeaderComponent } from './plantillas/header/header.component';
-import {DialogVentaComponent} from './vistas/venta/dialog/dialogVenta.component'
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 
@@ -52,8 +51,6 @@ import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
     ContactoComponent,
     ContlistasComponent,
     ContlistasAdminComponent,
-    DialogVentaComponent
-
  ],
   imports: [
     RouterModule,

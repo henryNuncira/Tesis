@@ -213,11 +213,11 @@ getAllDEtalleVentas():Observable<detalleVentasI[]>
 
   return this.http.get<detalleVentasI[]>(direccion,{headers:header});
 }
-PostNewDetalleVentas(ventasO: detalleVentasI[]): Observable<responseI>
+PostNewDetalleVentas(ventas: ventasI): Observable<responseI>
   {
     let header = new HttpHeaders().set('Type-content', 'aplication/json')
     let direccion = this.url + "PostNuevoDetalleVenta";
-    return this.http.post<responseI>(direccion, ventasO, {headers:header});
+    return this.http.post<responseI>(direccion, ventas, {headers:header});
   }
 
 //-------------------Usuarios****** crud de la Api....

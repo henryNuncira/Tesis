@@ -1,15 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-nuevo-venta',
-  templateUrl: './nuevo-venta.component.html',
-  styleUrls: ['./nuevo-venta.component.css']
+
+  template: `<app-venta-form></app-venta-form>`,
+
 })
-export class NuevoVentaComponent implements OnInit {
+export class NuevoVentaComponent  {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

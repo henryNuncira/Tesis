@@ -1,12 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-//import { MatSnackBar } from '@angular/material/snack-bar';
 import { NavigationExtras, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api/api.service';
 import { ventasI } from 'src/app/shared/models/ventas.interface';
 import Swal from 'sweetalert2';
-import { DialogVentaComponent } from '../dialog/dialogVenta.component';
 
 @Component({
   selector: 'app-listado-venta',
@@ -25,8 +23,11 @@ export class ListadoVentaComponent implements OnInit {
  Venta !: ventasI;
 
 
-  constructor(http: HttpClient ,private api:ApiService,private router:Router,
-    public dialog:MatDialog) {}
+  constructor(http: HttpClient ,
+              private api:ApiService,
+              private router:Router,
+              public dialog:MatDialog
+            ) {}
 
   ngOnInit(): void {
     this.getAllVentas();
@@ -44,10 +45,7 @@ export class ListadoVentaComponent implements OnInit {
 
 }
 
-  toEditarVenta(ventaEdi:any):void{
-    this.navigationExtras.state = ventaEdi;
-    this.router.navigate(['editarVenta'], this.navigationExtras)
-  }
+ 
   toVerVenta(ventaVer:any):void{
     this.navigationExtras.state = ventaVer;
     this.router.navigate(['detallesVenta'], this.navigationExtras);
@@ -85,8 +83,7 @@ export class ListadoVentaComponent implements OnInit {
     this.router.navigate(['listadoVenta'])
   }
   toNuevoVenta():void{
-   const dialogRef= this.dialog.open(DialogVentaComponent,{
-    width : this.width
-   });
+    this.router.navigate(['nuevaVenta'])
   }
+
 }

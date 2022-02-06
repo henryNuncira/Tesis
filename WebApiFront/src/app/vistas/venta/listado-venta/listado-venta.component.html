@@ -1,7 +1,6 @@
 <div class="container mt-3">
 
-
-  <button class="btn btn-warning" (click)="toNuevoVenta()"><i class="bi bi-caret-right-square-fill">Nuevo</i></button>
+  <button type="button" class="btn btn-warning m-1" (click)="toNuevoVenta()">Nuevo</button>
   <button type="button" class="btn btn-primary btn-lg"[routerLink]="['/contAdmin']">Regresar al Menu</button>
 <table datatable class="row-border hover table-striped table-bordered">
 <thead class="thead-dark">
@@ -21,12 +20,11 @@
     <th scope="row">{{venta.idVenta}}</th>
     <td type="date">{{venta.fecha}}</td>
     <td>{{venta.impuesto}}</td>
-    <td>{{venta.Total}}</td>
+    <td>{{venta.total}}</td>
     <td>{{venta.tipoComprobante}}</td>
     <td>{{venta.numeroComprobante}}</td>
 
     <td class="btn-group" role="group">
-      <button type="button" class="btn btn-outline-success m-1" (click)="toEditarVenta(venta)">Editar</button>
       <button type="button" class="btn btn-outline-info m-1" (click)="toVerVenta(venta)">Mostrar</button>
       <button type="button" class="btn btn-outline-danger m-1" (click)="toDeleteVenta(venta.idVenta)">Eliminar</button>
     </td>

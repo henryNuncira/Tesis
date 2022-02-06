@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductsFormComponent } from './products-form.component';
 
-
-
 @NgModule({
   declarations: [ProductsFormComponent],
   imports: [
@@ -12,6 +10,5 @@ import { ProductsFormComponent } from './products-form.component';
     ReactiveFormsModule
   ],
   exports : [ProductsFormComponent]
-
 })
 export class ProductosFormModule { }
