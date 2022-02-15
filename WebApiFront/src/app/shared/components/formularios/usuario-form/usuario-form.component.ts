@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { isNumeric } from 'rxjs/internal-compatibility';
 import { ApiService } from 'src/app/services/api/api.service';
 import { Activo } from 'src/app/shared/models/activo.enum';
 import { Rol } from 'src/app/shared/models/rol.enum';
@@ -15,7 +16,6 @@ import Swal from 'sweetalert2';
 })
 export class UsuarioFormComponent implements OnInit {
 
-
   bandera : number =0;
   activos : any[]=[];
   roles : any[]=[];
@@ -27,6 +27,8 @@ export class UsuarioFormComponent implements OnInit {
 
 
     constructor(private router:Router, private fb:FormBuilder, private api:ApiService) {
+      this.roles = Object.keys(Rol).filter(k => isNaN(Number(k)));
+      this.activos = Object.keys(Activo).filter(f => isNaN(Number(f)));
       const navigation= this.router.getCurrentNavigation();
       this.usuario = navigation?.extras?.state?.value;
 
@@ -34,21 +36,22 @@ export class UsuarioFormComponent implements OnInit {
     }
 
     ngOnInit(): void {
-
-      for (let item in Rol){
-        if(isNaN(Number(item))){
-          this.roles.push({Text: item, value:Rol[item]});
+      
+     /*  for(let item in this.rol){
+        if (isNaN(Number(item))){
+          this.roles.push({text:item, value: this.rol[item]});
         }
       }
-
-      for (let item in Activo){
-        if(isNaN(Number(item))){
-          this.activos.push({Text: item, value:Activo[item]});
+      for(let item in this.activo){
+        if (isNaN(Number(item))){
+          this.activos.push({text:item, value: this.activo[item]});
         }
-      }
-
-
+      } */
+      console.log(Object.keys(Rol));
+      console.log(this.roles);
+      console.log(this.activos);
     }
+
     toGuardarUsuario() : void{
 
 
@@ -90,7 +93,7 @@ export class UsuarioFormComponent implements OnInit {
 
 
     toList() :void{
-      this.router.navigate(['listadoUsuario']);
+      this.router.navigate(['listadoUsuarios']);
     }
 
     private initForm(): void {
@@ -98,8 +101,6 @@ export class UsuarioFormComponent implements OnInit {
         idUsuario: ['',[Validators.required]],
         nombreUsuario :['',[Validators.required]],
         password :['',[Validators.required]],
-        activo :['',[Validators.required]],
-        rol :['',[Validators.required]],
 
       });
     }

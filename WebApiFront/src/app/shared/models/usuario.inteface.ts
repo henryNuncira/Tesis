@@ -9,5 +9,4 @@ export interface usuarioI
   activo :Activo;
   rol :Rol;
 
-
 }

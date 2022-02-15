@@ -1,5 +1,5 @@
 export enum Rol {
-  Administrador = 1,
-  Vendedor= 2,
-  AdministradorEspecial=3,
-}
+  Administrador =1 ,
+  Vendedor=2,
+  AdministradorEspecial= 3,
+} 

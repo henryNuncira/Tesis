@@ -9,10 +9,39 @@
           <input type="text" class="form-control" id="readOnlyInput" placeholder="Solo lectura Id" readonly="" formControlName="idVenta">
       </div>
     </div>
-    <div class="form-row">
-  
-  
-        <div class="form-group col-md-6">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Cliente</h5>
+            <select formControlName="idCliente"  class="form-control">
+              <option [ngValue]="null" disabled>Elige un cliente</option>
+              <option *ngFor="let clienteListar of listadoClientes" [ngValue]="clienteListar.idCliente">
+                {{ clienteListar.nombreCompleto}}
+              </option>
+              </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"> Vendedor </h5>
+            <select  class="form-control"   formControlName="idVendedor">
+              <option [ngValue]="null" disabled>Elige un Vendedor</option>
+              <option *ngFor="let vendedorListar of listadoVendedores" [ngValue]="vendedorListar.idVendedor">
+                {{ vendedorListar.nombreCompleto}}
+              </option>
+              </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="row">
+     <div class="form-group col-md-6">
           <label for="formFile" class="form-label">Tipo de Comprobante</label>
   
           <input type="text" class="form-control" placeholder="Tipo de Comprobante" formControlName="tipoComprobante"
@@ -26,10 +55,7 @@
               Lo sentimos, tipo Comprobante es vacío. ¿Prueba otro?
             </span>
             </div>
-        </div>
-    </div>
-  
-    <div class="form-row">
+      </div>
         <div class="form-group col-md-6">
           <label for="formFile" class="form-label">Numero de Comprobante</label>
   
@@ -46,34 +72,68 @@
             </div>
         </div>
     </div>
+  
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="formFile" class="form-label"><h1>Impuesto</h1>  </label>
+      </div>
+      <div class="col-md-6 form-group">  
+        <input type="number" class="form-control" placeholder="Impuesto" formControlName="impuesto"
+        [ngClass] = "{
+          'is-invalid':isValidField('impuesto')
+        }"
+        >
+      </div>
+        <div class="invalid-feedback">
+
+          <span *ngIf="ventaForm.get('impuesto')?.errors?.required">
+            Lo siento, ese numero Comprobante es vacío. ¿Prueba otro?
+          </span>
+          </div>
+    
+  </div>
         <!-- aqui debo agregar el detalle de la venta-->
     <div class="form-group" >
         <a class="btn btn-primary" (click)= "agregarDetalle()">Agregar Detalle De Venta</a>
     </div>   
-          <div formArrayName = "detallesVentas">
-            <div class="form-group">
-              <label class="col-md-2 control-label" >Cantidad</label>
-            </div>
-            <div class="col-md-8">
-              <input class="form-control"  type="text" formControlName="cantidad">
-            </div>
-            <div class="form-group">
-              <label class="col-md-2 control-label" >Precio</label>
-            </div>
-            <div class="col-md-8">
-              <input class="form-control"  type="text" formControlName="precio">
-            </div>
-            <div class="form-group">
-              <label class="col-md-2 control-label" >Descuento</label>
-            </div>
-            <div class="col-md-8">
-              <input class="form-control"  type="text" formControlName="descuento">
+    <div class="form-row" style="border-style: ridge; border-width: 2px;" formArrayName = "detalle"
+     *ngFor="let detallesVenta of detalle.controls; let i = index;">
+      <div class="form-group col-md-6">
+         <label [attr.for]= "'cantidad' + i" >Cantidad</label>
+         <input [attr.id] = "'cantidad' + i" type="text" class="form-control" formControlName="cantidad">
+      </div>
+      <div class="col-sm-6">
+        <div >
+          <div class="card-body">
+            <h5 class="card-title">Producto</h5>
+             <select  formControlName="idProducto"  class="form-control">
+              <option [ngValue]="null" disabled>Elige un Producto</option>
+              <option  *ngFor="let productoListar of listadoProductos" [ngValue]="productoListar">
+                {{ productoListar.nombre}}
+              </option>
+              </select>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col">
+          <label [attr.for]= "'descuento' + i" class="col-md-2 control-label" >Descuento</label>
+          <input [attr.id]= "'descuento' + i" class="form-control"  type="text" formControlName="descuento">
+        </div>
+        <div class="row">
+          
+          <div class="col-sm-6">
+            <div >
+              <div class="card-body">
+                <button type="button" class="btn btn-danger pull-left" (click)= "removerDetalle(i)">Remover</button>
+              </div>
             </div>
           </div>
-          <div class="form-group" >
-            <div class="col-md-10">
-           </div>
-          </div>
+        </div>
+      </div>
+   
+    </div>
+    <br/>
       <!-- finaliza detalle venta-->
         <div >
       <button  type="submit" id="save"  class="btn btn-success btn-block text-light">Guardar</button>

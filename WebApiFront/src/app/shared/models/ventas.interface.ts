@@ -8,7 +8,7 @@ export interface ventasI
    fecha : string;
    impuesto :number;
    total :number;
-   detalle : detalleVentasI[];
+   detalles : detalleVentasI[];
    idCliente : number;
    idVendedor : number;
 }
