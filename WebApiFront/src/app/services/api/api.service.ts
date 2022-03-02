@@ -10,6 +10,7 @@ import { responseI } from 'src/app/shared/models/response.interface';
 import { usuarioI } from 'src/app/shared/models/usuario.inteface';
 import { vendedoresI } from 'src/app/shared/models/vendedores.interface';
 import { ventasI } from 'src/app/shared/models/ventas.interface';
+import { rolI } from 'src/app/shared/models/rol.interface';
 
 
 @Injectable({
@@ -230,8 +231,7 @@ getAllUsuarios():Observable<usuarioI[]>
   return this.http.get<usuarioI[]>(direccion,{headers:header});
 }
 PostNewUsuario(usuarioO: usuarioI[]): Observable<responseI>
-{     console.log('servicio nuevo');
-
+{     
    let header = new HttpHeaders().set('Type-content', 'aplication/json')
     let direccion = this.url + "PostNuevoUsuario";
     return this.http.post<responseI>(direccion, usuarioO, {headers:header});
@@ -257,6 +257,14 @@ loginByUsuario(form:usuarioI[]):Observable<responseI>{
   let direccion = this.url + "PostLogin";
 
   return this.http.post<responseI>(direccion,form,{headers:header});
+}
+getAllRoles():Observable<rolI[]>
+{
+  console.log('servicio nuevo roles');
+  let header = new HttpHeaders().set('Type-content', 'aplication/json')
+  let direccion = this.url + "GetRoles";
+
+  return this.http.get<rolI[]>(direccion,{headers:header});
 }
 
 }

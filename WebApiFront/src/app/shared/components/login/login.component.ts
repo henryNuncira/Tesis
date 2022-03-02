@@ -60,13 +60,16 @@ export class LoginComponent implements OnInit {
         switch (dataResponse.rol) {
 
           case 1:
-            this.router.navigate(['contAdmin']);
+            this.router.navigate(['contlistas']);
               break;
           case 2:
             this.router.navigate(['listadoVentas']);
               break;
           case 3:
-            this.router.navigate(['contlistas']);
+            this.router.navigate(['contAdmin']);
+            break;
+          case 4:
+            this.router.navigate(['listadoProveedores']);
               break;
 
           default:

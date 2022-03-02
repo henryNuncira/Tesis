@@ -99,6 +99,9 @@ toChange(): void{
     toList() :void{
       this.router.navigate(['listadoClientes']);
     }
+    toListVentas() :void{
+      this.router.navigate(['listadoVentas']);
+    }
 
     private initForm(): void {
       this.clienteForm = this.fb.group({

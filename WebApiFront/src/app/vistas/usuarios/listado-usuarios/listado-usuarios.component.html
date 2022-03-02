@@ -18,11 +18,12 @@
   <tr  *ngFor="let usuario of  listadoUsuarios;">
     <th scope="row">{{usuario.idUsuario}}</th>
     <td>{{usuario.nombreUsuario}}</td>
-    <td *ngIf="usuario.activo == 1">Activo</td>
-    <td *ngIf="usuario.activo == 2">Inactivo</td>
-    <td *ngIf="usuario.rol == 1">Administrador</td>
-    <td *ngIf="usuario.rol == 2">Vendedor</td>
-    <td *ngIf="usuario.rol == 3">Administrador Especial</td>
+    <td *ngIf="usuario.activo == true">Activo</td>
+    <td *ngIf="usuario.activo == false">Inactivo</td>
+    <td *ngIf="usuario.idRol == 1">Administrador</td>
+    <td *ngIf="usuario.idRol == 2">Vendedor</td>
+    <td *ngIf="usuario.idRol == 3">Super Administrador</td>
+    <td *ngIf="usuario.idRol == 4">Proveedor</td>
     <td class="btn-group" role="group">
       <button type="button" class="btn btn-outline-success m-1" (click)="toEditarUsuario(usuario)">Editar</button>
       <button type="button" class="btn btn-outline-danger m-1" (click)="toDeleteUsuario(usuario.idUsuario)">Eliminar</button>

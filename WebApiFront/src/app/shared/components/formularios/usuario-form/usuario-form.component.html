@@ -11,15 +11,15 @@
     <div class="form-group row">
       <label for="staticEmail" class="col-sm-2 col-form-label">Nombre Completo</label>
       <div class="col-sm-10">
-        <input type="text"   class="form-control-plaintext" placeholder="Nombre Completo"
-        formControlName="Password"
+        <input type="text"   class="form-control-plaintext" placeholder="Nombre del Usuario"
+        formControlName="nombreUsuario"
         [ngClass] = "{
-          'is-invalid':isValidField('Password')
+          'is-invalid':isValidField('nombreUsuario')
         }"
           >
          <div class="invalid-feedback">
 
-          <span *ngIf="usuarioForm.get('Password')?.errors?.required">
+          <span *ngIf="usuarioForm.get('nombreUsuario')?.errors?.required">
             Lo sentimos, Password de usuario es vacío. ¿Prueba otro?
           </span>
           </div>
@@ -44,32 +44,37 @@
 
     </div>
 
+
+    <div class="row">
+      <div class="form-group col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"> Roles </h5>
+            <select  class="form-control"  formControlName="idRol">
+              <option [ngValue]="null" disabled>Elige un Rol</option>
+              <option *ngFor="let rolListar of listadoRoles" [ngValue]="rolListar.idRol">
+                {{ rolListar.nombreRol}}
+              </option>
+              </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 form-group">  
+        <div class="col">
+          <input class="form-check-input" type="checkbox"  formControlName="activo" id="flexCheckChecked" checked>
+          <label class="form-check-label" for="flexCheckChecked">
+           <h1>Activo</h1> 
+          </label>
+        </div>
+      </div>
     
-    <div class="form-group">
-      <label for="activo">Seleccione Actividad</label>
-      <select  class="form-control" id="activo" formControlName="activo" [(ngModel)]="model.activo">
-        <option>Seleccione actividad </option>
-        <option *ngFor="let name of activos " [ngValue]="name">{{name}}</option>
-      </select>
+  </div>
+    
+    <div class="col-sm-6">
+      
+      
     </div>
-
- <div class="form-group">
-      <label >Seleccione Rol</label>
-      <select  class="form-control"  formControlName="rol" >
-        <option selected></option>
-        <option *ngFor="let name of roles" [value]="name" >{{name}}</option>
-      </select>
-    </div>
-    <!-- <div class="form-group">
-      <label for="exampleInputPassword1">activo</label>
-      <input type="number" class="form-control" placeholder="Activo" formControlName="activo">
-    </div>
-
-    <div class="form-group">
-      <label for="exampleInputPassword1">rol</label>
-
-      <input  type="number" class="form-control" placeholder="rol"  formControlName="rol">
-    </div> -->
 
     <div >
       <button  type="submit" id="save"  class="btn btn-success btn-block text-light">Guardar</button>

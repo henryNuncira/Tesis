@@ -37,61 +37,14 @@
         </div>
       </div>
     </div>
-
-
-    
+<br>
     <div class="row">
-     <div class="form-group col-md-6">
-          <label for="formFile" class="form-label">Tipo de Comprobante</label>
-  
-          <input type="text" class="form-control" placeholder="Tipo de Comprobante" formControlName="tipoComprobante"
-          [ngClass] = "{
-            'is-invalid':isValidField('tipoComprobante')
-          }"
-            >
-           <div class="invalid-feedback">
-  
-            <span *ngIf="ventaForm.get('tipoComprobante')?.errors?.required">
-              Lo sentimos, tipo Comprobante es vacío. ¿Prueba otro?
-            </span>
-            </div>
-      </div>
-        <div class="form-group col-md-6">
-          <label for="formFile" class="form-label">Numero de Comprobante</label>
-  
-          <input type="text" class="form-control" placeholder="Numero de Comprobante" formControlName="numeroComprobante"
-          [ngClass] = "{
-            'is-invalid':isValidField('numeroComprobante')
-          }"
-          >
-          <div class="invalid-feedback">
-  
-            <span *ngIf="ventaForm.get('numeroComprobante')?.errors?.required">
-              Lo siento, ese numero Comprobante es vacío. ¿Prueba otro?
-            </span>
-            </div>
-        </div>
+      <div class="col"><h1><span class="label label-default">Total</span></h1></div>
+      <div class="col">b</div>
+      <div class="col"><h1><span class="label label-default">Precio C/U</span></h1></div>
+      <div class="col">d</div>
     </div>
-  
-    <div class="row">
-      <div class="form-group col-md-6">
-        <label for="formFile" class="form-label"><h1>Impuesto</h1>  </label>
-      </div>
-      <div class="col-md-6 form-group">  
-        <input type="number" class="form-control" placeholder="Impuesto" formControlName="impuesto"
-        [ngClass] = "{
-          'is-invalid':isValidField('impuesto')
-        }"
-        >
-      </div>
-        <div class="invalid-feedback">
 
-          <span *ngIf="ventaForm.get('impuesto')?.errors?.required">
-            Lo siento, ese numero Comprobante es vacío. ¿Prueba otro?
-          </span>
-          </div>
-    
-  </div>
         <!-- aqui debo agregar el detalle de la venta-->
     <div class="form-group" >
         <a class="btn btn-primary" (click)= "agregarDetalle()">Agregar Detalle De Venta</a>

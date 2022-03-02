@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { isNumeric } from 'rxjs/internal-compatibility';
 import { ApiService } from 'src/app/services/api/api.service';
-import { Activo } from 'src/app/shared/models/activo.enum';
-import { Rol } from 'src/app/shared/models/rol.enum';
+import { rolI } from 'src/app/shared/models/rol.interface';
 import { usuarioI } from 'src/app/shared/models/usuario.inteface';
 import Swal from 'sweetalert2';
 
@@ -17,41 +15,31 @@ import Swal from 'sweetalert2';
 export class UsuarioFormComponent implements OnInit {
 
   bandera : number =0;
-  activos : any[]=[];
-  roles : any[]=[];
   usuario !: usuarioI;
   estado !: number;
   message !: string;
   usuarioForm !: FormGroup;
-  model: usuarioI ={idUsuario:0,nombreUsuario:'',password:'',activo: Activo.Inactivo, rol: Rol.Administrador};
+  listadoRoles !: rolI[];
+ // model: usuarioI ={idUsuario:0,nombreUsuario:'',password:'',activo: true, idRol: 0};
 
-
+  ngOnInit(): void{
+    this.getAllRolesLista();
+  }
     constructor(private router:Router, private fb:FormBuilder, private api:ApiService) {
-      this.roles = Object.keys(Rol).filter(k => isNaN(Number(k)));
-      this.activos = Object.keys(Activo).filter(f => isNaN(Number(f)));
       const navigation= this.router.getCurrentNavigation();
       this.usuario = navigation?.extras?.state?.value;
-
       this.initForm();
     }
+    public getAllRolesLista(){
 
-    ngOnInit(): void {
-      
-     /*  for(let item in this.rol){
-        if (isNaN(Number(item))){
-          this.roles.push({text:item, value: this.rol[item]});
-        }
-      }
-      for(let item in this.activo){
-        if (isNaN(Number(item))){
-          this.activos.push({text:item, value: this.activo[item]});
-        }
-      } */
-      console.log(Object.keys(Rol));
-      console.log(this.roles);
-      console.log(this.activos);
+      this.api.getAllRoles().subscribe(resp =>
+        {
+          this.listadoRoles= resp;
+          console.log(this.listadoRoles);
+    
+        },error => console.error(error));
+    
     }
-
     toGuardarUsuario() : void{
 
 
